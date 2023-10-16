@@ -1,0 +1,32 @@
+CREATE DATABASE se_lab;
+use se_lab;
+CREATE TABLE student(
+    s_id int PRIMARY KEY AUTO_INCREMENT, 
+    dept varchar(20), 
+    name varchar(20), 
+    nid int, 
+    birth DATE, 
+    address varchar(30)
+);
+CREATE TABLE teacher(
+    t_id int PRIMARY KEY AUTO_INCREMENT, 
+    dept varchar(20), 
+    name varchar(20), 
+    nid int, 
+    birth DATE, 
+    address varchar(30)
+);
+CREATE TABLE course(
+    c_id int PRIMARY KEY AUTO_INCREMENT, 
+    dept varchar(20), 
+    title varchar(20), 
+    credit int, 
+    syllabus varchar(50)
+);
+CREATE TABLE payment(
+    payment_id int PRIMARY KEY AUTO_INCREMENT, 
+    amount int, 
+    date DATE,
+    s_id int,
+    FOREIGN KEY(s_id) REFERENCES student(s_id)
+);
